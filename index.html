@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic English Grammar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa, #e4edff);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #4361ee, #3a0ca3);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+            position: relative;
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            border: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .tab-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+        
+        .tab-btn.active {
+            background: #4cc9f0;
+            color: #1a1a2e;
+            font-weight: 600;
+        }
+        
+        .content-section {
+            padding: 2.5rem;
+        }
+        
+        .grammar-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .grammar-section.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section-title {
+            color: #3a0ca3;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid #4cc9f0;
+            margin-bottom: 1.8rem;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .grammar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 2.5rem;
+        }
+        
+        .grammar-card {
+            background: #f8f9ff;
+            border-radius: 12px;
+            padding: 1.8rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-left: 4px solid #4361ee;
+        }
+        
+        .grammar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.15);
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            color: #3a0ca3;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card-title i {
+            color: #4cc9f0;
+            font-size: 1.8rem;
+        }
+        
+        .formula-box {
+            background: #eef7ff;
+            border: 2px dashed #4361ee;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+        
+        .examples {
+            background: #ffffff;
+            border-left: 4px solid #4cc9f0;
+            padding: 1.2rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+        
+        .example-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #4361ee;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .correct {
+            color: #2ecc71;
+            font-weight: 600;
+        }
+        
+        .incorrect {
+            color: #e74c3c;
+            text-decoration: line-through;
+            margin-right: 8px;
+        }
+        
+        .exercise-section {
+            background: linear-gradient(135deg, #f0f7ff, #e1eeff);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .exercise-title {
+            font-size: 1.6rem;
+            color: #3a0ca3;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .question {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .question-text {
+            font-weight: 500;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+        
+        .option {
+            padding: 12px;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .option:hover {
+            background: #e9ecef;
+            border-color: #4361ee;
+        }
+        
+        .option.correct {
+            background: #d4edda;
+            border-color: #c3e6cb;
+        }
+        
+        .answer-explanation {
+            background: #e2f0ff;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin-top: 1.2rem;
+            display: none;
+        }
+        
+        .show-explanation {
+            background: #4361ee;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .show-explanation:hover {
+            background: #3a0ca3;
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 1.8rem;
+            font-size: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .tab-btn {
+                padding: 8px 16px;
+                font-size: 1rem;
+            }
+            
+            .content-section {
+                padding: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1><i class="fas fa-book"></i> Basic English Grammar</h1>
+            <p class="subtitle">Master essential grammar concepts with clear explanations, examples, and practice exercises</p>
+            
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="parts">Parts of Speech</button>
+                <button class="tab-btn" data-tab="tenses">Tenses</button>
+                <button class="tab-btn" data-tab="sentences">Sentence Structure</button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="content-section">
+            <!-- Parts of Speech Section -->
+            <section id="parts" class="grammar-section active">
+                <h2 class="section-title"><i class="fas fa-file-alt"></i> Parts of Speech</h2>
+                <p class="intro">Words are categorized into eight parts of speech based on their function in a sentence. Understanding these categories is fundamental to mastering English grammar.</p>
+                
+                <div class="grammar-grid">
+                    <!-- Noun -->
+                    <div class="grammar-card">
+                        <h3 class="card-title"><i class="fas fa-user"></i> Noun</h3>
+                        <p>A word that names a person, place, thing, or idea.</p>
+                        
+                        <div class="formula-box">
+                            Function: Subject or object of a sentence
+                        </div>
+                        
+                        <div class="examples">
+                            <div class="example-title"><i class="fas fa-check-circle"></i> Examples:</div>
+                            <p>• <strong>John</strong> is a teacher. (person)</p>
+                            <p>• We visited <strong>Paris</strong> last year. (place)</p>
+                            <p>• This <strong>book</strong> is interesting. (thing)</p>
+                            <p>• <strong>Freedom</strong> is important. (idea)</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Verb -->
+                    <div class="grammar-card">
+                        <h3 class="card-title"><i class="fas fa-running"></i> Verb</h3>
+                        <p>A word that expresses an action or state of being.</p>
+                        
+                        <div class="formula-box">
+                            Function: Shows what the subject does or is
+                        </div>
+                        
+                        <div class="examples">
+                            <div class="example-title"><i class="fas fa-check-circle"></i> Examples:</div>
+                            <p>• She <strong>teaches</strong> English. (action)</p>
+                            <p>• They <strong>are</strong> students. (state of being)</p>
+                            <p>• He <strong>has</strong> a car. (possession)</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Adjective -->
+                    <div class="grammar-card">
+                        <h3 class="card-title"><i class="fas fa-paint-brush"></i> Adjective</h3>
+                        <p>A word that describes or modifies a noun.</p>
+                        
+                        <div class="formula-box">
+                            Position: Before nouns or after linking verbs
+                        </div>
+                        
+                        <div class="examples">
+                            <div class="example-title"><i class="fas fa-check-circle"></i> Examples:</div>
+                            <p>• She has a <strong>beautiful</strong> dress.</p>
+                            <p>• The coffee is <strong>hot</strong>.</p>
+                            <p>• It's an <strong>interesting</strong> book.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Adverb -->
+                    <div class="grammar-card">
+                        <h3 class="card-title"><i class="fas fa-bolt"></i> Adverb</h3>
+                        <p>A word that modifies a verb, adjective, or other adverb.</p>
+                        
+                        <div class="formula-box">
+                            Often ends with -ly, but not always
+                        </div>
+                        
+                        <div class="examples">
+                            <div class="example-title"><i class="fas fa-check-circle"></i> Examples:</div>
+                            <p>• She speaks <strong>quickly</strong>. (modifies verb)</p>
+                            <p>• It's <strong>very</strong> hot today. (modifies adjective)</p>
+                            <p>• He works <strong>extremely</strong> hard. (modifies adverb)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Exercises -->
+                <div class="exercise-section">
+                    <h3 class="exercise-title"><i class="fas fa-pencil-alt"></i> Practice Exercises: Parts of Speech</h3>
+                    
+                    <!-- Question 1 -->
+                    <div class="question">
+                        <div class="question-text">1. Identify the noun in this sentence: "The cat sleeps on the sofa."</div>
+                        <div class="options">
+                            <div class="option">A) sleeps</div>
+                            <div class="option">B) the</div>
+                            <div class="option correct">C) cat</div>
+                            <div class="option">D) on</div>
+                        </div>
+                        <button class="show-explanation">Show Explanation</button>
+                        <div class="answer-explanation">
+                            <p><strong>Explanation:</strong> "Cat" is a noun because it names an animal. "Sleeps" is a verb, "the" is an article, and "on" is a preposition.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 2 -->
+                    <div class="question">
+                        <div class="question-text">2. Which word is an adjective in this sentence: "She wore a beautiful red dress."</div>
+                        <div class="options">
+                            <div class="option">A) wore</div>
+                            <div class="option correct">B) beautiful</div>
+                            <div class="option">C) dress</div>
+                            <div class="option">D) she</div>
+                        </div>
+                        <button class="show-explanation">Show Explanation</button>
+                        <div class="answer-explanation">
+                            <p><strong>Explanation:</strong> "Beautiful" is an adjective that describes the noun "dress". "Wore" is a verb, "dress" is a noun, and "she" is a pronoun.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Tenses Section -->
+            <section id="tenses" class="grammar-section">
+                <h2 class="section-title"><i class="fas fa-clock"></i> Verb Tenses</h2>
+                <p class="intro">Tenses show the time of an action. Mastering tenses is essential for clear communication in English.</p>
+                
+                <div class="grammar-grid">
+                    <!-- Present Simple -->
+                    <div class="grammar-card">
+                        <h3 class="card-title"><i class="fas fa-calendar-day"></i> Present Simple</h3>
+                        <p>Used for habits, general truths, and fixed arrangements.</p>
+                        
+                        <div class="formula-box">
+                            Formula: Subject + V1 (add -s/-es for he/she/it)
+                        </div>
+                        
+                        <div class="examples">
+                            <div class="example-title"><i class="fas fa-check-circle"></i> Examples:</div>
+                            <p>• I <strong>work</strong> every day. (habit)</p>
+                            <p>• She <strong>works</strong> at a bank. (general truth)</p>
+                            <p>• The train <strong>leaves</strong> at 6 PM. (fixed arrangement)</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Present Continuous -->
+                    <div class="grammar-card">
+                        <h3 class="card-title"><i class="fas fa-sync-alt"></i> Present Continuous</h3>
+                        <p>Used for actions happening now or around now, and future arrangements.</p>
+                        
+                        <div class="formula-box">
+                            Formula: Subject + am/is/are + V-ing
+                        </div>
+                        
+                        <div class="examples">
+                            <div class="example-title"><i class="fas fa-check-circle"></i> Examples:</div>
+                            <p>• I <strong>am studying</strong> now. (happening now)</p>
+                            <p>• They <strong>are working</strong> on a project. (around now)</p>
+                            <p>• We <strong>are meeting</strong> tomorrow. (future arrangement)</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Past Simple -->
+                    <div class="grammar-card">
+                        <h3 class="card-title"><i class="fas fa-history"></i> Past Simple</h3>
+                        <p>Used for completed actions in the past.</p>
+                        
+                        <div class="formula-box">
+                            Formula: Subject + V2 (regular: verb+ed, irregular: special form)
+                        </div>
+                        
+                        <div class="examples">
+                            <div class="example-title"><i class="fas fa-check-circle"></i> Examples:</div>
+                            <p>• She <strong>worked</strong> yesterday. (regular)</p>
+                            <p>• I <strong>went</strong> to Paris last year. (irregular)</p>
+                            <p>• They <strong>didn't finish</strong> the project. (negative)</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Future Simple -->
+                    <div class="grammar-card">
+                        <h3 class="card-title"><i class="fas fa-arrow-right"></i> Future Simple</h3>
+                        <p>Used for predictions, promises, and decisions made at the moment.</p>
+                        
+                        <div class="formula-box">
+                            Formula: Subject + will + V1
+                        </div>
+                        
+                        <div class="examples">
+                            <div class="example-title"><i class="fas fa-check-circle"></i> Examples:</div>
+                            <p>• I <strong>will call</strong> you tomorrow. (promise)</p>
+                            <p>• It <strong>will rain</strong> later. (prediction)</p>
+                            <p>• I think I <strong>will have</strong> coffee. (instant decision)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Exercises -->
+                <div class="exercise-section">
+                    <h3 class="exercise-title"><i class="fas fa-pencil-alt"></i> Practice Exercises: Tenses</h3>
+                    
+                    <!-- Question 1 -->
+                    <div class="question">
+                        <div class="question-text">1. Which sentence uses the present simple correctly?</div>
+                        <div class="options">
+                            <div class="option">A) She is working now.</div>
+                            <div class="option correct">B) He plays tennis every Sunday.</div>
+                            <div class="option">C) We are going to the cinema tonight.</div>
+                            <div class="option">D) They played football yesterday.</div>
+                        </div>
+                        <button class="show-explanation">Show Explanation</button>
+                        <div class="answer-explanation">
+                            <p><strong>Explanation:</strong> Option B is correct because it describes a regular habit (every Sunday) using the present simple tense. The other options describe actions happening now (A), future plans (C), or past actions (D).</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 2 -->
+                    <div class="question">
+                        <div class="question-text">2. Choose the correct past simple form: "She _____ to school yesterday."</div>
+                        <div class="options">
+                            <div class="option">A) go</div>
+                            <div class="option">B) goes</div>
+                            <div class="option">C) is going</div>
+                            <div class="option correct">D) went</div>
+                        </div>
+                        <button class="show-explanation">Show Explanation</button>
+                        <div class="answer-explanation">
+                            <p><strong>Explanation:</strong> "Went" is the correct past simple form of the irregular verb "go". The word "yesterday" indicates a completed action in the past.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Sentence Structure Section -->
+            <section id="sentences" class="grammar-section">
+                <h2 class="section-title"><i class="fas fa-sentence"></i> Sentence Structure</h2>
+                <p class="intro">English sentences follow specific patterns. Understanding structure helps create clear and grammatically correct sentences.</p>
+                
+                <div class="grammar-grid">
+                    <!-- Simple Sentences -->
+                    <div class="grammar-card">
+                        <h3 class="card-title"><i class="fas fa-align-left"></i> Simple Sentences</h3>
+                        <p>Contains one independent clause (one subject-verb combination).</p>
+                        
+                        <div class="formula-box">
+                            Formula: Subject + Verb + (Object)
+                        </div>
+                        
+                        <div class="examples">
+                            <div class="example-title"><i class="fas fa-check-circle"></i> Examples:</div>
+                            <p>• <strong>She</strong> (S) <strong>reads</strong> (V) <strong>books</strong> (O).</p>
+                            <p>• <strong>Birds</strong> (S) <strong>fly</strong> (V).</p>
+                            <p>• <strong>He</strong> (S) <strong>likes</strong> (V) <strong>coffee</strong> (O).</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Compound Sentences -->
+                    <div class="grammar-card">
+                        <h3 class="card-title"><i class="fas fa-link"></i> Compound Sentences</h3>
+                        <p>Two independent clauses joined by a coordinating conjunction.</p>
+                        
+                        <div class="formula-box">
+                            Formula: Clause1 + (and, but, or) + Clause2
+                        </div>
+                        
+                        <div class="examples">
+                            <div class="example-title"><i class="fas fa-check-circle"></i> Examples:</div>
+                            <p>• I like tea, <strong>and</strong> she likes coffee.</p>
+                            <p>• He tried hard, <strong>but</strong> he didn't succeed.</p>
+                            <p>• You can come now, <strong>or</strong> you can meet us later.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Complex Sentences -->
+                    <div class="grammar-card">
+                        <h3 class="card-title"><i class="fas fa-project-diagram"></i> Complex Sentences</h3>
+                        <p>One independent clause and at least one dependent clause.</p>
+                        
+                        <div class="formula-box">
+                            Formula: Independent clause + (because, when, if) + dependent clause
+                        </div>
+                        
+                        <div class="examples">
+                            <div class="example-title"><i class="fas fa-check-circle"></i> Examples:</div>
+                            <p>• I'll call you <strong>when</strong> I arrive.</p>
+                            <p>• <strong>Because</strong> it was raining, we stayed home.</p>
+                            <p>• She passed the exam <strong>although</strong> she didn't study much.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- SVO Structure -->
+                    <div class="grammar-card">
+                        <h3 class="card-title"><i class="fas fa-cubes"></i> SVO Structure</h3>
+                        <p>Subject-Verb-Object is the most common word order in English.</p>
+                        
+                        <div class="formula-box">
+                            Basic Pattern: Subject + Verb + Object
+                        </div>
+                        
+                        <div class="examples">
+                            <div class="example-title"><i class="fas fa-check-circle"></i> Examples:</div>
+                            <p>• <strong>Dogs</strong> (S) <strong>chase</strong> (V) <strong>cats</strong> (O).</p>
+                            <p>• <strong>Maria</strong> (S) <strong>plays</strong> (V) <strong>tennis</strong> (O).</p>
+                            <p>• <strong>We</strong> (S) <strong>enjoy</strong> (V) <strong>movies</strong> (O).</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Exercises -->
+                <div class="exercise-section">
+                    <h3 class="exercise-title"><i class="fas fa-pencil-alt"></i> Practice Exercises: Sentence Structure</h3>
+                    
+                    <!-- Question 1 -->
+                    <div class="question">
+                        <div class="question-text">1. Which is the correct simple sentence structure?</div>
+                        <div class="options">
+                            <div class="option">A) Quickly runs the boy.</div>
+                            <div class="option correct">B) The boy runs quickly.</div>
+                            <div class="option">C) Runs the boy quickly.</div>
+                            <div class="option">D) The quickly boy runs.</div>
+                        </div>
+                        <button class="show-explanation">Show Explanation</button>
+                        <div class="answer-explanation">
+                            <p><strong>Explanation:</strong> The correct structure is Subject (The boy) + Verb (runs) + Adverb (quickly). English typically follows Subject-Verb-Object/Adverb word order.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 2 -->
+                    <div class="question">
+                        <div class="question-text">2. Identify the compound sentence:</div>
+                        <div class="options">
+                            <div class="option">A) Because it was raining, we stayed home.</div>
+                            <div class="option">B) The cat slept while the dog watched.</div>
+                            <div class="option correct">C) I wanted to go, but I was too tired.</div>
+                            <div class="option">D) After dinner, we watched a movie.</div>
+                        </div>
+                        <button class="show-explanation">Show Explanation</button>
+                        <div class="answer-explanation">
+                            <p><strong>Explanation:</strong> Option C is a compound sentence because it contains two independent clauses ("I wanted to go" and "I was too tired") joined by the coordinating conjunction "but".</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2023 Basic English Grammar | All Concepts in One Place</p>
+            <p>Practice daily to improve your grammar skills!</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const grammarSections = document.querySelectorAll('.grammar-section');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and sections
+                tabBtns.forEach(b => b.classList.remove('active'));
+                grammarSections.forEach(section => section.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Show corresponding section
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Show/hide explanation for exercises
+        document.querySelectorAll('.show-explanation').forEach(button => {
+            button.addEventListener('click', function() {
+                const explanation = this.nextElementSibling;
+                if (explanation.style.display === 'block') {
+                    explanation.style.display = 'none';
+                    this.textContent = 'Show Explanation';
+                } else {
+                    explanation.style.display = 'block';
+                    this.textContent = 'Hide Explanation';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
